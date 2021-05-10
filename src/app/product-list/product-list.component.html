@@ -1,0 +1,14 @@
+<div ng-app="TodoList" ng-controller="myCtrl">
+  <div id="myDIV" class="header">
+    <h2 style="margin:5px">My To Do List</h2>
+    <input type="text" id="myInput" placeholder="Title..." [(ngModel)]="newTodo" (keyup)="doneTyping($event)">
+    <span (click)="addItem()" class="addBtn">Add</span>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of Todos" [ngClass]="{'checked': item.completed}" (click)="item.completed=!item.completed"> {{
+      item.title }}
+      <span class="close" (click)="removeTodo(item)">&times;</span>
+    </li>
+  </ul>
+</div>
